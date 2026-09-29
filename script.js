@@ -93,4 +93,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    /* ==========================================================
+   E) TYPING EFFECT FOR ROLE TEXT
+========================================================== */
+    const roleEl = document.getElementById('role');
+    const roles = [
+        'Web Developer',
+        'PHP Developer',
+        'Laravel Developer',
+        'Full Stack Developer',
+        'WordPress Developer',
+        'Backend Developer'
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeRole() {
+        const word = roles[roleIndex];
+
+        if (!isDeleting) {
+            charIndex++;
+            roleEl.textContent = word.slice(0, charIndex);
+            if (charIndex === word.length) {
+                isDeleting = true;
+                return setTimeout(typeRole, 1500);   // word poora hone par ruke
+            }
+            return setTimeout(typeRole, 100);        // typing speed
+        }
+
+        charIndex--;
+        roleEl.textContent = word.slice(0, charIndex);
+        if (charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            return setTimeout(typeRole, 400);        // agla word shuru hone se pehle wait
+        }
+        return setTimeout(typeRole, 50);             // delete speed
+    }
+
+    if (roleEl) typeRole();
 });

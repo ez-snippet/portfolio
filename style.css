@@ -1511,3 +1511,17 @@ img {
 
     .boxes { grid-template-columns: 1fr; }
 }
+/* Typing cursor */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    margin-left: 4px;
+    background: var(--accent);
+    vertical-align: -0.12em;
+    animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
