@@ -447,11 +447,7 @@ img {
     z-index: 2;
     transition: var(--transition);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.imges:hover {
-    border-color: var(--accent);
-    transform: scale(1.02);
+    cursor: pointer;
 }
 
 /* ============================================================
