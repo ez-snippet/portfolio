@@ -1,0 +1,350 @@
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(.85) rotate(-4deg)
+    }
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(.92) translateY(14px)
+    }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(1);
+        opacity: 0
+    }
+}
+
+@keyframes glowPulse {
+    50% {
+        box-shadow: 0 0 0 3px var(--accent), 0 0 80px var(--glow)
+    }
+}
+
+@keyframes ping {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, .6)
+    }
+
+    100% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0)
+    }
+}
+
+.nav-shell {
+    animation: dropIn .8s cubic-bezier(.2, .7, .2, 1) backwards
+}
+
+.hero2 .left>* {
+    animation: fadeUp .8s cubic-bezier(.2, .7, .2, 1) backwards
+}
+
+.hero2 .left>:nth-child(1) {
+    animation-delay: .15s
+}
+
+.hero2 .left>:nth-child(2) {
+    animation-delay: .3s
+}
+
+.hero2 .left>:nth-child(3) {
+    animation-delay: .45s
+}
+
+.hero2 .left>:nth-child(4) {
+    animation-delay: .6s
+}
+
+.hero2 .left>:nth-child(5) {
+    animation-delay: .75s
+}
+
+.hero2 .img {
+    animation: zoomIn 1s cubic-bezier(.2, .7, .2, 1) .3s backwards
+}
+
+.ring-photo {
+    animation: glowPulse 4s ease-in-out infinite
+}
+
+.orbit {
+    transition: transform .25s ease-out
+}
+
+.ring-photo,
+.ico {
+    transition: translate .3s ease-out
+}
+
+.js .anim {
+    opacity: 0;
+    transition: opacity .7s ease var(--d, 0s), transform .7s cubic-bezier(.2, .7, .2, 1) var(--d, 0s)
+}
+
+.js .anim[data-a="up"] {
+    transform: translateY(34px)
+}
+
+.js .anim[data-a="left"] {
+    transform: translateX(-50px)
+}
+
+.js .anim[data-a="right"] {
+    transform: translateX(50px)
+}
+
+.js .anim[data-a="zoom"] {
+    transform: scale(.92) translateY(20px)
+}
+
+.js .anim.show {
+    opacity: 1;
+    transform: none
+}
+
+.js .ul {
+    border-bottom: 0;
+    padding-bottom: 2px;
+    background: linear-gradient(var(--accent), var(--accent)) no-repeat left bottom/0 3px;
+    transition: background-size .8s cubic-bezier(.2, .7, .2, 1) .3s
+}
+
+.js .in-view .ul {
+    background-size: 100% 3px
+}
+
+.techbar:hover .track {
+    animation-play-state: paused
+}
+
+.tchip {
+    transition: var(--t)
+}
+
+.tchip:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent)
+}
+
+.chips.sm span {
+    transition: var(--t)
+}
+
+.chips.sm span:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent)
+}
+
+.svc-ic,
+.step b {
+    transition: transform .35s cubic-bezier(.2, .7, .2, 1)
+}
+
+.svc-card:hover .svc-ic {
+    transform: rotate(-8deg) scale(1.1)
+}
+
+.step:hover b {
+    transform: scale(1.12)
+}
+
+.project-top i {
+    transition: transform .4s cubic-bezier(.2, .7, .2, 1)
+}
+
+.project-card:hover .project-top i {
+    transform: scale(1.25) rotate(-6deg)
+}
+
+.c-item {
+    transition: var(--t)
+}
+
+.c-item:hover {
+    transform: translateX(8px)
+}
+
+.info .available::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--ok);
+    animation: ping 1.6s infinite
+}
+
+.btn-grad,
+.btn-out,
+.btn-dark-pill {
+    transition: var(--t)
+}
+
+.btn-grad,
+.btn-out,
+.btn-dark-pill,
+.filter-btn {
+    position: relative;
+    overflow: hidden
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .25;
+    transform: scale(0);
+    animation: ripple .6s ease-out forwards;
+    pointer-events: none
+}
+
+.project-card.pop {
+    animation: pop .5s cubic-bezier(.2, .7, .2, 1) backwards
+}
+
+.svc-card,
+.project-card,
+.info,
+.step {
+    position: relative
+}
+
+.svc-card::before,
+.project-card::before,
+.info::before,
+.step::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 70%)
+}
+
+.svc-card:hover::before,
+.project-card:hover::before,
+.info:hover::before,
+.step:hover::before {
+    opacity: 1
+}
+
+.svc-card:hover,
+.project-card:hover,
+.step:hover {
+    transform: perspective(900px) translateY(-6px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+}
+
+.cur-dot,
+.cur-ring,
+.cur-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s
+}
+
+.cur-dot,
+.cur-ring {
+    z-index: 10000;
+    mix-blend-mode: difference
+}
+
+.cur-glow {
+    z-index: -1;
+    width: 520px;
+    height: 520px;
+    margin: -260px 0 0 -260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--glow), transparent 65%)
+}
+
+.cur-dot::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform .2s
+}
+
+.cur-ring::before {
+    content: "";
+    display: block;
+    width: 38px;
+    height: 38px;
+    margin: -19px 0 0 -19px;
+    border-radius: 50%;
+    border: 1.5px solid #fff;
+    transition: transform .25s cubic-bezier(.2, .7, .2, 1), background .25s
+}
+
+.cur-on .cur-dot,
+.cur-on .cur-ring,
+.cur-on .cur-glow {
+    opacity: 1
+}
+
+.cur-on .cur-glow {
+    opacity: .9
+}
+
+.cur-ring.is-hover::before {
+    transform: scale(1.7);
+    background: rgba(255, 255, 255, .2)
+}
+
+.cur-dot.is-hover::before {
+    transform: scale(0)
+}
+
+.cur-ring.is-down::before {
+    transform: scale(.7)
+}
+
+.cur-dot.is-text,
+.cur-ring.is-text {
+    opacity: 0 !important
+}
+
+html.has-cursor,
+html.has-cursor * {
+    cursor: none !important
+}
+
+html.has-cursor input,
+html.has-cursor textarea {
+    cursor: text !important
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    .cur-glow,
+    .ripple {
+        display: none
+    }
+}
